@@ -33,6 +33,7 @@ const NoteState=(props)=>{
           body:JSON.stringify({title,description,tag})
         }) 
         const json=response.json();
+        console.log(json)
         getNotes()
       }
     //Delete a note
