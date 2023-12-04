@@ -22,13 +22,13 @@ function Navbar() {
           <li className="nav-item"><Link className={`nav-link ${location.pathname==="/" ? "active" : " "}`} aria-current="page" to="/">Home</Link></li>
           <li className="nav-item"><Link className={`nav-link ${location.pathname==="/about" ? "active" : " "}`} to="/about">About</Link></li>  
           <form className="d-flex">
-          {!localStorage.getItem("auth-token") && <><Link className="btn btn-secondary mx-1" to="/login" role="button">
+          {!localStorage.getItem("auth-token") && <><Link className="btn btn-warning mx-1" to="/login" role="button">
               Login
             </Link>
-            <Link className="btn btn-secondary mx-1" to="/signup" role="button">
+            <Link className="btn btn-warning mx-1" to="/signup" role="button">
               Signup
             </Link></> }
-          {localStorage.getItem("auth-token") && <button className="btn btn-secondary mx-1" onClick={handleClick}>Log Out</button> } 
+          {localStorage.getItem("auth-token") && <button className="btn btn-warning mx-1" onClick={handleClick}>Log Out</button> } 
           </form>
         </ul>
       </div>
