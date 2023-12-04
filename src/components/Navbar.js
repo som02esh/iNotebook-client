@@ -21,10 +21,14 @@ function Navbar() {
         {/* location contains an object of all the details of current page and pathname is one of its values */}
           <li className="nav-item"><Link className={`nav-link ${location.pathname==="/" ? "active" : " "}`} aria-current="page" to="/">Home</Link></li>
           <li className="nav-item"><Link className={`nav-link ${location.pathname==="/about" ? "active" : " "}`} to="/about">About</Link></li>  
-          <li className="nav-item"><Link className="nav-link"  aria-current="page" to="/login">Login</Link></li>
-          <li className="nav-item"><Link className="nav-link"  aria-current="page" to="/signup">Register</Link></li>
-          <form >
-          <button className="btn btn-danger" onClick={handleClick} aria-current="page" >Logout</button>
+          <form className="d-flex">
+          {!localStorage.getItem("auth-token") && <><Link className="btn btn-secondary mx-1" to="/login" role="button">
+              Login
+            </Link>
+            <Link className="btn btn-secondary mx-1" to="/signup" role="button">
+              Signup
+            </Link></> }
+          {localStorage.getItem("auth-token") && <button className="btn btn-secondary mx-1" onClick={handleClick}>Log Out</button> } 
           </form>
         </ul>
       </div>
